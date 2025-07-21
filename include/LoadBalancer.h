@@ -2,23 +2,41 @@
 #include "WebServer.h"
 #include <vector>
 
+/**
+ * @class LoadBalancer
+ * @brief Manages and distributes requests to multiple web servers.
+ */
 class LoadBalancer {
 
-	private:
-	std::vector<WebServer> servers;
-	int rr_indx; // Round-robin index
+private:
+    /// Collection of web servers.
+    std::vector<WebServer> servers;
 
-	public:
-	// Constructor
-	LoadBalancer(int servers);
+    /// Index for round-robin distribution.
+    int rr_indx;
 
-	// Distribute a request using round-robin
-	void distribute(const Request& req);
+public:
+    /**
+     * @brief Constructs a LoadBalancer with the given number of servers.
+     * @param servers Number of initial web servers.
+     */
+    LoadBalancer(int servers);
 
-	//  Run single cycle
-	void run_cycle(int cycle);
+    /**
+     * @brief Distributes a request to a web server using round-robin policy.
+     * @param req The request to distribute.
+     */
+    void distribute(const Request& req);
 
-	// Total pending requests across all servers
-	int queued_requests() const;
+    /**
+     * @brief Runs a single cycle of load balancing and server processing.
+     * @param cycle The current cycle number.
+     */
+    void run_cycle(int cycle);
+
+    /**
+     * @brief Computes the total number of queued requests across all servers.
+     * @return Total queued requests.
+     */
+    int queued_requests() const;
 };
-
