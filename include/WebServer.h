@@ -13,5 +13,8 @@ public:
     void try_process(int current_cycle);
     bool is_available(int current_cycle) const;
     int get_queue_length() const;
+	int get_id() const;         
+	bool is_busy(int curr_cycle) const;
+
 };
 

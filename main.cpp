@@ -8,31 +8,38 @@
 using namespace std;
 
 int main() {
-	// seeding
-	srand(time(0)); 
-	
-	// Testing Request
-	Request r0;
-	cout << "Request IP in " << r0.ip_in << endl;
-	cout << "Request IP out " << r0.ip_out << endl;
-	cout << "Processing time " << r0.proc_time << endl;
 
-	// Testing LoadBalancer
-	LoadBalancer lb(3);
-	const int cycles = 20;
+    srand(time(0));
+    int num_servers;
+    int cycles;
 
-	for (int c  = 1; c <= cycles; c++){
-		cout << "Cycle " << c << endl;
-		
-		// Generate a new req every 3 cycles
-		if(c%3 == 1){
-			Request r;
-			lb.distribute(r);
-		}
-	lb.run_cycle(c);
-	cout << "Total pending requests: " << lb.queued_requests() << endl;
-	}
+    cout << "Enter number of web servers: ";
+    cin >> num_servers;
 
+    cout << "Enter number of clock cycles to run: ";
+    cin >> cycles;
 
-	return 0;
+    LoadBalancer lb(num_servers);
+
+    // Fill initial queue: servers * 100 requests
+    for (int i = 0; i < num_servers * 100; ++i) {
+        Request r;
+        lb.distribute(r); // preload request queue
+    }
+
+    for (int c = 1; c <= cycles; ++c) {
+        cout << "Cycle " << c << endl;
+
+        // Add random requests (simulate traffic)
+        if (rand() % 5 == 0) {  // ~20% chance
+            Request r;
+            lb.distribute(r);
+        }
+
+        lb.run_cycle(c);
+        cout << "Total pending requests: " << lb.queued_requests() << endl;
+    }
+
+    return 0;
 }
+

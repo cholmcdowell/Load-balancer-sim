@@ -24,3 +24,14 @@ bool WebServer::is_available(int current_cycle) const {
 int WebServer::get_queue_length() const {
     return queue.size();
 }
+
+int WebServer::get_id() const {
+    return server_id;
+}
+
+
+bool WebServer::is_busy(int current_cycle) const {
+    // Server is busy if current cycle is before available_at time
+    return current_cycle < available_at;
+}
+
