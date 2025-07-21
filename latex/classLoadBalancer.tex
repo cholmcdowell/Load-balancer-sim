@@ -1,0 +1,109 @@
+\doxysection{Load\+Balancer Class Reference}
+\hypertarget{classLoadBalancer}{}\label{classLoadBalancer}\index{LoadBalancer@{LoadBalancer}}
+
+
+Manages and distributes requests to multiple web servers.  
+
+
+
+
+{\ttfamily \#include $<$Load\+Balancer.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classLoadBalancer_af4917b4a44a4921771bd733b3e9c4443}{Load\+Balancer}} (int servers)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{classLoadBalancer}{Load\+Balancer} with the given number of servers. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLoadBalancer_aa774a7fb16aa663cd052aff17ab78e9d}{distribute}} (const \mbox{\hyperlink{structRequest}{Request}} \&req)
+\begin{DoxyCompactList}\small\item\em Distributes a request to a web server using round-\/robin policy. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLoadBalancer_a7624d01ba5d5fe7ef9bec7c33686e4a2}{run\+\_\+cycle}} (int cycle)
+\begin{DoxyCompactList}\small\item\em Runs a single cycle of load balancing and server processing. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classLoadBalancer_a68d85afb93894cf6d17518d80182842d}{queued\+\_\+requests}} () const
+\begin{DoxyCompactList}\small\item\em Computes the total number of queued requests across all servers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages and distributes requests to multiple web servers. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classLoadBalancer_af4917b4a44a4921771bd733b3e9c4443}\label{classLoadBalancer_af4917b4a44a4921771bd733b3e9c4443} 
+\index{LoadBalancer@{LoadBalancer}!LoadBalancer@{LoadBalancer}}
+\index{LoadBalancer@{LoadBalancer}!LoadBalancer@{LoadBalancer}}
+\doxysubsubsection{\texorpdfstring{LoadBalancer()}{LoadBalancer()}}
+{\footnotesize\ttfamily Load\+Balancer\+::\+Load\+Balancer (\begin{DoxyParamCaption}\item[{int}]{num\+\_\+servers }\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{classLoadBalancer}{Load\+Balancer} with the given number of servers. 
+
+Constructs the \doxylink{classLoadBalancer}{Load\+Balancer} with an initial number of servers.
+
+
+\begin{DoxyParams}{Parameters}
+{\em servers} & Number of initial web servers.\\
+\hline
+{\em num\+\_\+servers} & Number of servers to initialize. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classLoadBalancer_aa774a7fb16aa663cd052aff17ab78e9d}\label{classLoadBalancer_aa774a7fb16aa663cd052aff17ab78e9d} 
+\index{LoadBalancer@{LoadBalancer}!distribute@{distribute}}
+\index{distribute@{distribute}!LoadBalancer@{LoadBalancer}}
+\doxysubsubsection{\texorpdfstring{distribute()}{distribute()}}
+{\footnotesize\ttfamily void Load\+Balancer\+::distribute (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structRequest}{Request}} \&}]{req }\end{DoxyParamCaption})}
+
+
+
+Distributes a request to a web server using round-\/robin policy. 
+
+Distributes a request to a server using round-\/robin scheduling.
+
+
+\begin{DoxyParams}{Parameters}
+{\em req} & The request to distribute. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classLoadBalancer_a68d85afb93894cf6d17518d80182842d}\label{classLoadBalancer_a68d85afb93894cf6d17518d80182842d} 
+\index{LoadBalancer@{LoadBalancer}!queued\_requests@{queued\_requests}}
+\index{queued\_requests@{queued\_requests}!LoadBalancer@{LoadBalancer}}
+\doxysubsubsection{\texorpdfstring{queued\_requests()}{queued\_requests()}}
+{\footnotesize\ttfamily int Load\+Balancer\+::queued\+\_\+requests (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Computes the total number of queued requests across all servers. 
+
+Calculates the total number of queued requests on all servers.
+
+\begin{DoxyReturn}{Returns}
+Total queued requests.
+
+Total queued requests count. 
+\end{DoxyReturn}
+\Hypertarget{classLoadBalancer_a7624d01ba5d5fe7ef9bec7c33686e4a2}\label{classLoadBalancer_a7624d01ba5d5fe7ef9bec7c33686e4a2} 
+\index{LoadBalancer@{LoadBalancer}!run\_cycle@{run\_cycle}}
+\index{run\_cycle@{run\_cycle}!LoadBalancer@{LoadBalancer}}
+\doxysubsubsection{\texorpdfstring{run\_cycle()}{run\_cycle()}}
+{\footnotesize\ttfamily void Load\+Balancer\+::run\+\_\+cycle (\begin{DoxyParamCaption}\item[{int}]{curr\+\_\+cycle }\end{DoxyParamCaption})}
+
+
+
+Runs a single cycle of load balancing and server processing. 
+
+Runs one simulation cycle\+: processes requests and adjusts server count.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cycle} & The current cycle number.\\
+\hline
+{\em curr\+\_\+cycle} & The current clock cycle. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Load\+Balancer.\+h\item 
+src/Load\+Balancer.\+cpp\end{DoxyCompactItemize}

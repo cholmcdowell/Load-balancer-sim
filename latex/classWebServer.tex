@@ -1,0 +1,194 @@
+\doxysection{Web\+Server Class Reference}
+\hypertarget{classWebServer}{}\label{classWebServer}\index{WebServer@{WebServer}}
+
+
+Represents a single web server that processes incoming requests.  
+
+
+
+
+{\ttfamily \#include $<$Web\+Server.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classWebServer_a5338e2af3cd0bf102a0ca87ba040d8fc}{Web\+Server}} (\mbox{\hyperlink{classWebServer_aaf5d707b54ab9e19de34aa260a914545}{int}} \mbox{\hyperlink{classWebServer_aaf5d707b54ab9e19de34aa260a914545}{id}}=0)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{classWebServer}{Web\+Server} with the given ID. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classWebServer_aaf5d707b54ab9e19de34aa260a914545}{void}} \mbox{\hyperlink{classWebServer_a24e2319fd503912ad2fbe8c881c76772}{enqueue}} (\mbox{\hyperlink{classWebServer_aaf5d707b54ab9e19de34aa260a914545}{const}} \mbox{\hyperlink{structRequest}{Request}} \&\mbox{\hyperlink{classWebServer_aaf5d707b54ab9e19de34aa260a914545}{req}})
+\begin{DoxyCompactList}\small\item\em Adds a request to the server\textquotesingle{}s queue. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classWebServer_aaf5d707b54ab9e19de34aa260a914545}{void}} \mbox{\hyperlink{classWebServer_ad715de41ca1afd8a8ea82c3b8f213513}{try\+\_\+process}} (\mbox{\hyperlink{classWebServer_aaf5d707b54ab9e19de34aa260a914545}{int}} \mbox{\hyperlink{classWebServer_aaf5d707b54ab9e19de34aa260a914545}{current\+\_\+cycle}})
+\begin{DoxyCompactList}\small\item\em Attempts to process a request if the server is available. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classWebServer_aaf5d707b54ab9e19de34aa260a914545}{bool}} \mbox{\hyperlink{classWebServer_a67842c514e287f501f9bdf470c04bb75}{is\+\_\+available}} (\mbox{\hyperlink{classWebServer_aaf5d707b54ab9e19de34aa260a914545}{int}} \mbox{\hyperlink{classWebServer_aaf5d707b54ab9e19de34aa260a914545}{current\+\_\+cycle}}) \mbox{\hyperlink{classWebServer_aaf5d707b54ab9e19de34aa260a914545}{const}}
+\begin{DoxyCompactList}\small\item\em Checks if the server is available in the given cycle. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classWebServer_aaf5d707b54ab9e19de34aa260a914545}{int}} \mbox{\hyperlink{classWebServer_a2e75adec400f48ae57109815806724f1}{get\+\_\+queue\+\_\+length}} () \mbox{\hyperlink{classWebServer_aaf5d707b54ab9e19de34aa260a914545}{const}}
+\begin{DoxyCompactList}\small\item\em Returns the number of queued requests. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classWebServer_aaf5d707b54ab9e19de34aa260a914545}{int}} \mbox{\hyperlink{classWebServer_ab87aacb41a5a373ecb5a2d00414960e5}{get\+\_\+id}} () \mbox{\hyperlink{classWebServer_aaf5d707b54ab9e19de34aa260a914545}{const}}
+\begin{DoxyCompactList}\small\item\em Returns the server\textquotesingle{}s unique identifier. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classWebServer_aaf5d707b54ab9e19de34aa260a914545}{bool}} \mbox{\hyperlink{classWebServer_a152cf399d9797d00d1fcbe252533c725}{is\+\_\+busy}} (\mbox{\hyperlink{classWebServer_aaf5d707b54ab9e19de34aa260a914545}{int}} \mbox{\hyperlink{classWebServer_aaf5d707b54ab9e19de34aa260a914545}{curr\+\_\+cycle}}) \mbox{\hyperlink{classWebServer_aaf5d707b54ab9e19de34aa260a914545}{const}}
+\begin{DoxyCompactList}\small\item\em Checks if the server is currently processing a request. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classWebServer_a3e535713f32c7b9c5e657d6918e4cca0}\label{classWebServer_a3e535713f32c7b9c5e657d6918e4cca0} 
+\mbox{\hyperlink{classWebServer_aaf5d707b54ab9e19de34aa260a914545}{int}} {\bfseries server\+\_\+id}
+\begin{DoxyCompactList}\small\item\em Unique identifier for the server. \end{DoxyCompactList}\item 
+\Hypertarget{classWebServer_aa371a72cf7393c412388c2944f4522c8}\label{classWebServer_aa371a72cf7393c412388c2944f4522c8} 
+\mbox{\hyperlink{classWebServer_aaf5d707b54ab9e19de34aa260a914545}{int}} {\bfseries available\+\_\+at}
+\begin{DoxyCompactList}\small\item\em Cycle when the server becomes available. \end{DoxyCompactList}\item 
+\Hypertarget{classWebServer_aaf5d707b54ab9e19de34aa260a914545}\label{classWebServer_aaf5d707b54ab9e19de34aa260a914545} 
+std\+::queue$<$ \mbox{\hyperlink{structRequest}{Request}} $>$ {\bfseries queue}
+\begin{DoxyCompactList}\small\item\em Queue of incoming requests. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a single web server that processes incoming requests. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classWebServer_a5338e2af3cd0bf102a0ca87ba040d8fc}\label{classWebServer_a5338e2af3cd0bf102a0ca87ba040d8fc} 
+\index{WebServer@{WebServer}!WebServer@{WebServer}}
+\index{WebServer@{WebServer}!WebServer@{WebServer}}
+\doxysubsubsection{\texorpdfstring{WebServer()}{WebServer()}}
+{\footnotesize\ttfamily Web\+Server\+::\+Web\+Server (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classWebServer_aaf5d707b54ab9e19de34aa260a914545}{int}}}]{server\+\_\+id = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{classWebServer}{Web\+Server} with the given ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & Server ID (default is 0).\\
+\hline
+{\em server\+\_\+id} & Unique server identifier. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classWebServer_a24e2319fd503912ad2fbe8c881c76772}\label{classWebServer_a24e2319fd503912ad2fbe8c881c76772} 
+\index{WebServer@{WebServer}!enqueue@{enqueue}}
+\index{enqueue@{enqueue}!WebServer@{WebServer}}
+\doxysubsubsection{\texorpdfstring{enqueue()}{enqueue()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classWebServer_aaf5d707b54ab9e19de34aa260a914545}{void}} Web\+Server\+::enqueue (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classWebServer_aaf5d707b54ab9e19de34aa260a914545}{const}} \mbox{\hyperlink{structRequest}{Request}} \&}]{req }\end{DoxyParamCaption})}
+
+
+
+Adds a request to the server\textquotesingle{}s queue. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em req} & The request to enqueue. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classWebServer_ab87aacb41a5a373ecb5a2d00414960e5}\label{classWebServer_ab87aacb41a5a373ecb5a2d00414960e5} 
+\index{WebServer@{WebServer}!get\_id@{get\_id}}
+\index{get\_id@{get\_id}!WebServer@{WebServer}}
+\doxysubsubsection{\texorpdfstring{get\_id()}{get\_id()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classWebServer_aaf5d707b54ab9e19de34aa260a914545}{int}} Web\+Server\+::get\+\_\+id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the server\textquotesingle{}s unique identifier. 
+
+Returns the server\textquotesingle{}s unique ID.
+
+\begin{DoxyReturn}{Returns}
+Server ID. 
+\end{DoxyReturn}
+\Hypertarget{classWebServer_a2e75adec400f48ae57109815806724f1}\label{classWebServer_a2e75adec400f48ae57109815806724f1} 
+\index{WebServer@{WebServer}!get\_queue\_length@{get\_queue\_length}}
+\index{get\_queue\_length@{get\_queue\_length}!WebServer@{WebServer}}
+\doxysubsubsection{\texorpdfstring{get\_queue\_length()}{get\_queue\_length()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classWebServer_aaf5d707b54ab9e19de34aa260a914545}{int}} Web\+Server\+::get\+\_\+queue\+\_\+length (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the number of queued requests. 
+
+Returns the number of requests waiting in the queue.
+
+\begin{DoxyReturn}{Returns}
+Queue size.
+
+Number of queued requests. 
+\end{DoxyReturn}
+\Hypertarget{classWebServer_a67842c514e287f501f9bdf470c04bb75}\label{classWebServer_a67842c514e287f501f9bdf470c04bb75} 
+\index{WebServer@{WebServer}!is\_available@{is\_available}}
+\index{is\_available@{is\_available}!WebServer@{WebServer}}
+\doxysubsubsection{\texorpdfstring{is\_available()}{is\_available()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classWebServer_aaf5d707b54ab9e19de34aa260a914545}{bool}} Web\+Server\+::is\+\_\+available (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classWebServer_aaf5d707b54ab9e19de34aa260a914545}{int}}}]{current\+\_\+cycle }\end{DoxyParamCaption}) const}
+
+
+
+Checks if the server is available in the given cycle. 
+
+Checks if the server is available for processing at the given cycle.
+
+
+\begin{DoxyParams}{Parameters}
+{\em current\+\_\+cycle} & The current cycle. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the server is available, false otherwise.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em current\+\_\+cycle} & The current simulation cycle. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the server is available, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classWebServer_a152cf399d9797d00d1fcbe252533c725}\label{classWebServer_a152cf399d9797d00d1fcbe252533c725} 
+\index{WebServer@{WebServer}!is\_busy@{is\_busy}}
+\index{is\_busy@{is\_busy}!WebServer@{WebServer}}
+\doxysubsubsection{\texorpdfstring{is\_busy()}{is\_busy()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classWebServer_aaf5d707b54ab9e19de34aa260a914545}{bool}} Web\+Server\+::is\+\_\+busy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classWebServer_aaf5d707b54ab9e19de34aa260a914545}{int}}}]{current\+\_\+cycle }\end{DoxyParamCaption}) const}
+
+
+
+Checks if the server is currently processing a request. 
+
+Checks if the server is currently busy processing a request.
+
+
+\begin{DoxyParams}{Parameters}
+{\em curr\+\_\+cycle} & Current cycle. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the server is busy, false otherwise.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em current\+\_\+cycle} & The current simulation cycle. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the server is busy, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classWebServer_ad715de41ca1afd8a8ea82c3b8f213513}\label{classWebServer_ad715de41ca1afd8a8ea82c3b8f213513} 
+\index{WebServer@{WebServer}!try\_process@{try\_process}}
+\index{try\_process@{try\_process}!WebServer@{WebServer}}
+\doxysubsubsection{\texorpdfstring{try\_process()}{try\_process()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classWebServer_aaf5d707b54ab9e19de34aa260a914545}{void}} Web\+Server\+::try\+\_\+process (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classWebServer_aaf5d707b54ab9e19de34aa260a914545}{int}}}]{current\+\_\+cycle }\end{DoxyParamCaption})}
+
+
+
+Attempts to process a request if the server is available. 
+
+Attempts to process the next request if the server is available.
+
+
+\begin{DoxyParams}{Parameters}
+{\em current\+\_\+cycle} & The current cycle.\\
+\hline
+{\em current\+\_\+cycle} & The current simulation cycle. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Web\+Server.\+h\item 
+src/Web\+Server.\+cpp\end{DoxyCompactItemize}
